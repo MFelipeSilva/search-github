@@ -11,7 +11,7 @@ export const ListOfRepositories = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 0 70px 70px 0;
+  margin: 0 4em 0 4em;
   
   @media (max-width: 600px) {
     margin: 0;
