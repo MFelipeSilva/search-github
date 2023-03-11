@@ -8,12 +8,11 @@ interface Props {
 }
 
 export const ContentRepos = ({ repositories }: Props) => {
-  console.log(repositories);
   return (
     <Container>
-      <ListOfRepositories>
+      <ListOfRepositories >
         {repositories.slice(0, 12).map((repo) => (
-          <Repo>
+          <Repo key={repo.id}>
             <h3>{repo?.name}</h3>
             { repo.language && <p><FaBook /> {repo?.language}</p>}
             <div>

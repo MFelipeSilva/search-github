@@ -9,9 +9,6 @@ import { Repositories } from "../Repositories";
 import { GlobalStyles } from "../../styles/GlobalStyles";
 import { ContentHome } from "../../components/ContentHome";
 
-interface ScrollProps {
-  setScroll: any;
-}
 
 export const Home = () => {
   const [user, setUser] = useState<UserProps | null>(null);
