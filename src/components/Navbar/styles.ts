@@ -53,4 +53,8 @@ export const Nav = styled.nav`
       margin-left: 30px;
     }
   }
+
+  @media (max-width: 600px) {
+    padding: 0 25px 0 25px;
+  }
 `;

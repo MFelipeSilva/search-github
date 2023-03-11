@@ -21,6 +21,21 @@ export const Container = styled.div`
     color: rgba(255, 255, 255, 0.9);
     margin: 20px 0 10px;
   }
+
+  @media (max-width: 600px) {
+    img {
+      padding: 6px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+
+      width: 220px;
+      height: 220px;
+    }
+
+    h2 {
+      font-size: 14pt;
+    }
+  }
 `;
 
 export const Smalls = styled.div`
@@ -41,5 +56,13 @@ export const Smalls = styled.div`
 
   small + small {
     margin-left: 30px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 10pt;
+
+    small + small {
+      margin-left: 10px;
+    }
   }
 `;

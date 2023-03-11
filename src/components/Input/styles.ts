@@ -21,21 +21,37 @@ export const Container = styled.div`
   }
 
   input::placeholder {
-    color: rgba(255, 255, 255, 0.5)
+    color: rgba(255, 255, 255, 0.5);
   }
 
   button {
     z-index: 1;
-    width: 20px; 
+    width: 20px;
 
     border: none;
     cursor: pointer;
     background: none;
     margin-left: 300px;
   }
+
+  @media (max-width: 600px) {
+    input {
+      width: 18rem;
+      min-height: 3em;
+      font-size: 10pt;
+    }
+
+    button {
+      margin-left: 240px;
+    }
+  }
 `;
 
 export const SearchIcon = styled(FaSearch)`
   color: #fff;
   font-size: 15px;
+
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
 `;
