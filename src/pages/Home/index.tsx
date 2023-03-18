@@ -10,18 +10,18 @@ import { GlobalStyles } from "../../styles/GlobalStyles";
 import { ContentHome } from "../../components/ContentHome";
 
 import { getUserData } from "../../redux/user/actions";
-import { useAppDispatch } from "../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { getRepositories } from "../../redux/repositories/actions";
 
-
 export const Home = () => {
-  const dispach = useAppDispatch()
+  const dispach = useAppDispatch();
   const [scroll, setScroll] = useState("hidden");
+  const { name } = useAppSelector((rootReducer) => rootReducer.nameReducer);
 
-  const searchUser = async (userName: string) => {
+  const searchUser = async () => {
     try {
-      const response = await client.get(userName);
-      const resRepositories = await client.get(`${userName}/repos`);
+      const response = await client.get(name);
+      const resRepositories = await client.get(`${name}/repos`);
 
       const data = response.data;
       const dataRepo = resRepositories.data;
@@ -36,20 +36,23 @@ export const Home = () => {
       };
 
       dispach(getUserData(userData));
-      dispach(getRepositories(dataRepo))
+      dispach(getRepositories(dataRepo));
 
       if (dataRepo) {
         setScroll("scroll");
       }
-
     } catch (error) {
       console.log(error);
     }
   };
 
+  if (name) {
+    searchUser();
+  }
+
   return (
     <Styles.Container>
-      <ContentHome searchUser={searchUser} />
+      <ContentHome />
       <Repositories />
       <GlobalStyles SetOverflow={scroll} />
     </Styles.Container>

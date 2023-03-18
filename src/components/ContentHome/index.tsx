@@ -8,11 +8,8 @@ import { useAppSelector } from "../../hooks/hooks";
 
 import { FaUsers, FaBookmark, FaPaperPlane} from "react-icons/fa";
 
-interface Props {
-  searchUser: (userName: string) => Promise<void>;
-}
 
-export const ContentHome = ({ searchUser }: Props) => {
+export const ContentHome = () => {
   const { data }  = useAppSelector(rootReducer => rootReducer.userReducer)
 
   return (
@@ -26,7 +23,7 @@ export const ContentHome = ({ searchUser }: Props) => {
         <small><FaPaperPlane />{`${data?.following || 0} following`}</small>
       </Styles.Smalls>
 
-      <Input searchUser={searchUser} />
+      <Input />
     </Styles.Container>
   );
 };

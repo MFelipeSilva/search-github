@@ -1,17 +1,17 @@
 import React, { useState, KeyboardEvent } from "react";
+import { useAppDispatch } from "../../hooks/hooks";
+import { addName } from "../../redux/saveName/actions";
 
 import * as Styles from "./styles";
 
-interface Props {
-  searchUser: (userName: string) => Promise<void>;
-}
-
-export const Input = ({ searchUser }: Props) => {
+export const Input = () => {
+  const dispach = useAppDispatch()
   const [userName, setUserName] = useState("");
+  
 
   const handleKeyEnter = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
-      searchUser(userName);
+      dispach(addName(userName));
     }
   };
 
@@ -27,7 +27,7 @@ export const Input = ({ searchUser }: Props) => {
       />
       <button
         title="Title"
-        onClick={() => searchUser(userName)}
+        onClick={() => dispach(addName(userName))}
       >
         <Styles.SearchIcon />
       </button>
