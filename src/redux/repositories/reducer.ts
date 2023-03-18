@@ -7,7 +7,7 @@ const initialState: RepositoriesState = {
   loading: false,
 };
 
-const repoReducer: Reducer<RepositoriesState> = (state = initialState, action) => {
+const repoReducer: Reducer<RepositoriesState> = ( state = initialState, action ) => {
   switch (action.type) {
     case RepositoriesTypes.LOAD_REQUEST:
       return { ...state, loading: true };
@@ -16,7 +16,7 @@ const repoReducer: Reducer<RepositoriesState> = (state = initialState, action) =
         ...state,
         loading: false,
         error: false,
-        data: action.payload.data,
+        data: action.payload,
       };
     case RepositoriesTypes.LOAD_FAILURE:
       return { ...state, loading: false, error: true, data: [] };

@@ -1,18 +1,19 @@
 import React from "react";
+import * as Styles from "./styles";
 
-import { Container, ListOfRepositories, Repo } from "./styles";
 import { FaBook, FaCodeBranch, FaRegEye, FaStar } from "react-icons/fa";
+import { useAppSelector } from "../../hooks/hooks";
 
-interface Props {
-  repositories: any[];
-}
+import { Repository } from "../../redux/repositories/types";
 
-export const ContentRepos = ({ repositories }: Props) => {
+export const ContentRepos = () => {
+  const { data } = useAppSelector(rootReducer => rootReducer.repoReducer)
+
   return (
-    <Container>
-      <ListOfRepositories >
-        {repositories.slice(0, 12).map((repo) => (
-          <Repo key={repo.id}>
+    <Styles.Container>
+      <Styles.ListOfRepositories >
+        {data.slice(0, 12).map((repo: Repository) => (
+          <Styles.Repo key={repo.id}>
             <h3>{repo?.name}</h3>
             { repo.language && <p><FaBook /> {repo?.language}</p>}
             <div>
@@ -28,9 +29,9 @@ export const ContentRepos = ({ repositories }: Props) => {
             </div>
 
             <button key={repo.id}><a href={repo.html_url} target="_blank">see code</a></button>
-          </Repo>
+          </Styles.Repo>
         ))}
-      </ListOfRepositories>
-    </Container>
+      </Styles.ListOfRepositories>
+    </Styles.Container>
   );
 };

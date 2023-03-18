@@ -1,6 +1,4 @@
 import { createStore, Store, applyMiddleware } from "redux";
-import { RepositoriesState } from "./repositories/types";
-
 import logger from "redux-logger"
 
 import rootReducer from "./rootReducer";

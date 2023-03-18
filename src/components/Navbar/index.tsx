@@ -1,10 +1,9 @@
-import React,{useState } from "react";
-import { Container, Nav} from "./styles";
+import React, { useState } from "react";
+import * as Styles from "./styles";
 
 import logo from "../../assets/logo.png";
 import { auth } from "../../services/firebase";
 import { GithubAuthProvider, signInWithPopup, User } from "firebase/auth";
-
 
 export const Navbar = () => {
   const [user, setUser] = useState<User>({} as User);
@@ -19,26 +18,24 @@ export const Navbar = () => {
       .catch((error) => {
         return console.log(error);
       });
-      
   };
 
-
   return (
-    <Container>
-      <Nav>
-      <img src={logo} alt="logo" />
+    <Styles.Container>
+      <Styles.Nav>
+        <img src={logo} alt="logo" />
 
-      <ul>
-        <li>
-          <a onClick={handleGithubSignIn}>Sign In</a>
-        </li>
-        <li>
-          <a href="https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home">
-            Sign Up
-          </a>
-        </li>
-      </ul>
-      </Nav>
-    </Container>
+        <ul>
+          <li>
+            <a onClick={handleGithubSignIn}>Sign In</a>
+          </li>
+          <li>
+            <a href="https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home">
+              Sign Up
+            </a>
+          </li>
+        </ul>
+      </Styles.Nav>
+    </Styles.Container>
   );
 };

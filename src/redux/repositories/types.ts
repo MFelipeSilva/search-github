@@ -1,8 +1,8 @@
-export enum RepositoriesTypes {
-  LOAD_REQUEST = "@repositories/LOAD_REQUEST",
-  GET_REPOSITORIES = "@repositories/GET_REPOSITORIES",
-  LOAD_FAILURE = "@repositories/LOAD_FAILURE",
-}
+export const RepositoriesTypes = {
+  LOAD_REQUEST: "repositories/LOAD_REQUEST",
+  GET_REPOSITORIES: "repositories/GET_REPOSITORIES",
+  LOAD_FAILURE: "repositories/LOAD_FAILURE",
+};
 
 export interface Repository {
   id?: string;
@@ -11,6 +11,7 @@ export interface Repository {
   stargazers_count?: number;
   watchers?: number;
   forks?: number;
+  html_url?: string;
 }
 
 export interface RepositoriesState {

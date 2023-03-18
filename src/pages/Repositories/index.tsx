@@ -1,15 +1,12 @@
 import React from "react";
-import { Container } from "./styles";
+import * as Styles from "./styles";
 import { ContentRepos } from "../../components/ContentRepos";
 
-interface Props {
-  repos: any[];
-}
 
-export const Repositories = ({ repos }: Props) => {
+export const Repositories = () => {
   return (
-    <Container>
-      <ContentRepos repositories={repos} />
-    </Container>
+    <Styles.Container>
+      <ContentRepos />
+    </Styles.Container>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container } from "./styles";
+import * as Styles from "./styles";
 
 import { UserProps } from "../../types/user";
 import client from "../../services/client";
@@ -11,11 +11,11 @@ import { ContentHome } from "../../components/ContentHome";
 
 import { getUserData } from "../../redux/user/actions";
 import { useAppDispatch } from "../../hooks/hooks";
+import { getRepositories } from "../../redux/repositories/actions";
 
 
 export const Home = () => {
   const dispach = useAppDispatch()
-  const [repos, setRepos] = useState([]);
   const [scroll, setScroll] = useState("hidden");
 
   const searchUser = async (userName: string) => {
@@ -36,22 +36,22 @@ export const Home = () => {
       };
 
       dispach(getUserData(userData));
+      dispach(getRepositories(dataRepo))
 
       if (dataRepo) {
         setScroll("scroll");
       }
 
-      setRepos(dataRepo);
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <Container>
+    <Styles.Container>
       <ContentHome searchUser={searchUser} />
-      <Repositories repos={repos} />
+      <Repositories />
       <GlobalStyles SetOverflow={scroll} />
-    </Container>
+    </Styles.Container>
   );
 };

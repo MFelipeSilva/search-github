@@ -1,6 +1,6 @@
 import React, { useState, KeyboardEvent } from "react";
 
-import { Container, SearchIcon } from "./styles";
+import * as Styles from "./styles";
 
 interface Props {
   searchUser: (userName: string) => Promise<void>;
@@ -16,7 +16,7 @@ export const Input = ({ searchUser }: Props) => {
   };
 
   return (
-    <Container>
+    <Styles.Container>
       <input
         type="text"
         name="search"
@@ -29,8 +29,8 @@ export const Input = ({ searchUser }: Props) => {
         title="Title"
         onClick={() => searchUser(userName)}
       >
-        <SearchIcon />
+        <Styles.SearchIcon />
       </button>
-    </Container>
+    </Styles.Container>
   );
 };
