@@ -3,15 +3,18 @@ import React, { useState } from "react";
 import { Container } from "./styles";
 
 import { UserProps } from "../../types/user";
-import { client } from "../../services/client";
+import client from "../../services/client";
 
 import { Repositories } from "../Repositories";
 import { GlobalStyles } from "../../styles/GlobalStyles";
 import { ContentHome } from "../../components/ContentHome";
 
+import { getUserData } from "../../redux/user/actions";
+import { useAppDispatch } from "../../hooks/hooks";
+
 
 export const Home = () => {
-  const [user, setUser] = useState<UserProps | null>(null);
+  const dispach = useAppDispatch()
   const [repos, setRepos] = useState([]);
   const [scroll, setScroll] = useState("hidden");
 
@@ -32,11 +35,12 @@ export const Home = () => {
         public_repos,
       };
 
+      dispach(getUserData(userData));
+
       if (dataRepo) {
         setScroll("scroll");
       }
 
-      setUser(userData);
       setRepos(dataRepo);
     } catch (error) {
       console.log(error);
@@ -45,7 +49,7 @@ export const Home = () => {
 
   return (
     <Container>
-      <ContentHome searchUser={searchUser} user={user} />
+      <ContentHome searchUser={searchUser} />
       <Repositories repos={repos} />
       <GlobalStyles SetOverflow={scroll} />
     </Container>
