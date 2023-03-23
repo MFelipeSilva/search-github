@@ -19,6 +19,13 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
 
+  p {
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
   img {
     width: 35px;
     height: 35px;
@@ -35,7 +42,6 @@ export const Nav = styled.nav`
       a {
         color: #fff;
         font-size: 14px;
-        cursor: pointer;
         text-decoration: none;
       }
 
@@ -54,7 +60,34 @@ export const Nav = styled.nav`
     }
   }
 
+  div {
+    display: flex;
+    align-items: center;
+
+    svg {
+      color: #fff;
+      font-size: 25px;
+      margin-left: 10px;
+    }
+  }
+
   @media (max-width: 600px) {
     padding: 0 25px 0 25px;
+  }
+`;
+
+export const ContentUser = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  margin-right: 30px;
+
+  img {
+    border-radius: 50%;
+  }
+
+  p + img {
+    margin-left: 15px;
   }
 `;

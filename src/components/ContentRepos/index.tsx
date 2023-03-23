@@ -7,16 +7,17 @@ import { useAppSelector } from "../../hooks/hooks";
 import { Repository } from "../../redux/repositories/types";
 
 export const ContentRepos = () => {
-  const { data } = useAppSelector(rootReducer => rootReducer.repoReducer)
+  const { dataRepository } = useAppSelector(rootReducer => rootReducer.repoReducer);
 
   return (
     <Styles.Container>
       <Styles.ListOfRepositories >
-        {data.slice(0, 12).map((repo: Repository) => (
+        {dataRepository?.map((repo: Repository) => (
           <Styles.Repo key={repo.id}>
             <h3>{repo?.name}</h3>
             { repo.language && <p><FaBook /> {repo?.language}</p>}
-            <div>
+
+            <Styles.Card>
               <p>
                 <FaStar /> {repo?.stargazers_count} stars
               </p>
@@ -26,7 +27,7 @@ export const ContentRepos = () => {
               <p>
                 <FaCodeBranch /> {repo?.forks} forks
               </p>
-            </div>
+            </Styles.Card>
 
             <button key={repo.id}><a href={repo.html_url} target="_blank">see code</a></button>
           </Styles.Repo>

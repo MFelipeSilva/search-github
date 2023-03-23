@@ -5,10 +5,10 @@ export const userTypes = {
 };
 
 export interface UserDB {
-  avatar_url: string;
-  login: string;
-  followers: string;
-  following: string;
+  avatar_url: string ;
+  login: string ;
+  followers: string ;
+  following: string 
   public_repos: string;
 }
 

@@ -15,7 +15,7 @@ export interface Repository {
 }
 
 export interface RepositoriesState {
-  readonly data: Repository[];
+  readonly dataRepository: Repository[];
   readonly loading: boolean;
   readonly error: boolean;
 }

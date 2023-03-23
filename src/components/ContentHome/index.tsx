@@ -14,7 +14,7 @@ export const ContentHome = () => {
 
   return (
     <Styles.Container>
-      <img src={data?.avatar_url || image} alt={data?.login} />
+      <img src={data?.avatar_url || image} alt="imagem"/>
       <h2>{`@${data?.login || "username"}`}</h2>
 
       <Styles.Smalls>
