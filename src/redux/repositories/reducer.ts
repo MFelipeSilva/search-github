@@ -11,7 +11,7 @@ const repoReducer: Reducer<RepositoriesState> = ( state = initialState, action )
   switch (action.type) {
     case RepositoriesTypes.LOAD_REQUEST:
       return { ...state, loading: true };
-    case RepositoriesTypes.GET_REPOSITORIES:
+    case RepositoriesTypes.STORE_REPOSITORIES:
       return {
         ...state,
         loading: false,

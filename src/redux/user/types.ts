@@ -1,6 +1,6 @@
 export const userTypes = {
   LOAD_REQUEST: "user/LOAD_REQUEST",
-  GET_USERDATA: "user/GET_USERDATA",
+  STORE_USERDATA: "user/GET_USERDATA",
   LOAD_FAILURE: "user/LOAD_FAILURE",
 };
 

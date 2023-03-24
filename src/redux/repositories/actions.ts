@@ -3,8 +3,8 @@ import { RepositoriesTypes, Repository } from "./types";
 export const loadRequest = () => ({
   type: RepositoriesTypes.LOAD_REQUEST,
 });
-export const getRepositories = (payload: Repository[] | undefined) => ({
-  type: RepositoriesTypes.GET_REPOSITORIES,
+export const storeRepositories = (payload: Repository[] | undefined) => ({
+  type: RepositoriesTypes.STORE_REPOSITORIES,
   payload,
 });
 export const loadFailure = () => ({

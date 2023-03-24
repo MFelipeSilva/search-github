@@ -1,6 +1,6 @@
 export const RepositoriesTypes = {
   LOAD_REQUEST: "repositories/LOAD_REQUEST",
-  GET_REPOSITORIES: "repositories/GET_REPOSITORIES",
+  STORE_REPOSITORIES: "repositories/GET_REPOSITORIES",
   LOAD_FAILURE: "repositories/LOAD_FAILURE",
 };
 

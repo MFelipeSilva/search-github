@@ -12,7 +12,7 @@ const userReducer: Reducer<UserState> = (state = initialState, action) => {
   switch (action.type) {
     case userTypes.LOAD_REQUEST:
       return { ...state, loading: true };
-    case userTypes.GET_USERDATA:
+    case userTypes.STORE_USERDATA:
       return {
         ...state,
         loading: false,

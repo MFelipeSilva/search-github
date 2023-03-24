@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import * as Styles from "./styles";
 
 import { useUserData } from "../../hooks/users";
-import { getUserData } from "../../redux/user/actions";
+import { storeUserData } from "../../redux/user/actions";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
@@ -17,7 +17,7 @@ export const Home = () => {
   const { data } = useUserData(name);
   
   useEffect(() => {
-    dispach(getUserData(data));
+    dispach(storeUserData(data));
   })
 
   return (
